@@ -1,4 +1,3 @@
----
 # RBAC
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -6,11 +5,10 @@ metadata:
   namespace: cert-manager
   name: freenom-webhook:secret-reader
 rules:
-- apiGroups: [""]
-  resources: ["secrets"]
-  verbs: ["get", "watch", "list"]
-  resourceNames: ["freenom"]
-
+  - apiGroups: ['']
+    resources: ['secrets']
+    verbs: ['get', 'watch', 'list']
+    resourceNames: ['freenom']
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -22,7 +20,6 @@ roleRef:
   kind: Role
   name: freenom-webhook:secret-reader
 subjects:
-- apiGroup: ""
-  kind: ServiceAccount
-  name: freenom-webhook
-
+  - apiGroup: ''
+    kind: ServiceAccount
+    name: freenom-webhook

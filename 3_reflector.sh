@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # The reflector is used to sync the secret created to another namespace
 
